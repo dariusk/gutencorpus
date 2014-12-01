@@ -36,6 +36,8 @@ gutencorpus.search(' believe he ')
 
 The `gutencorpus` object contains one function: `search`, which returns a promise (using [Underscore.Deferred](https://www.npmjs.org/package/underscore.deferred), which follows JQuery's Deferred implementation).
 
+This is essentially a lightweight version of hugovk's [gutengrep](https://github.com/hugovk/gutengrep/) -- please check that out if you want a comprehensive implementation that works with the entire Gutenberg corpus (but also requires more setup and is in Python).
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
