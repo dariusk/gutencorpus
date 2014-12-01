@@ -22,7 +22,7 @@ var gut = require('../lib/gutencorpus.js');
     test.ifError(value)
 */
 
-exports['awesome'] = {
+exports['gutencorpus'] = {
   setUp: function(done) {
     // setup here
     done();
@@ -38,7 +38,17 @@ exports['awesome'] = {
   'finds nothing for a garbage word': function(test) {
     test.expect(1);
     gut.search('laisjdlkasjdlksajldkjasldkj').done(function(result) {
-      console.log(result);
+      test.ok(result.length === 0, 'expected a zero-length result');
+      test.done();
+    });
+  },
+  'finds only the correct case when caseSensitive option is true': function(test) {
+    test.expect(1);
+    gut.search('Afraid', {caseSensitive: true}).done(function(result) {
+      // set result to anything not containing the substring "Afraid"
+      result = result.filter(function(el) {
+        return el.indexOf('Afraid') === -1;
+      });
       test.ok(result.length === 0, 'expected a zero-length result');
       test.done();
     });

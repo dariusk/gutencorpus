@@ -7,7 +7,7 @@ Install the module with: `npm install gutencorpus`
 
 ```javascript
 var gutencorpus = require('gutencorpus');
-gutencorpus.search('misled')
+gutencorpus.search('misled', {caseSensitive: true})
   .done(function(result) {
     console.log(result);
   });
@@ -35,6 +35,8 @@ gutencorpus.search(' believe he ')
 ## Documentation
 
 The `gutencorpus` object contains one function: `search`, which returns a promise (using [Underscore.Deferred](https://www.npmjs.org/package/underscore.deferred), which follows JQuery's Deferred implementation).
+
+Search takes an `options` object, which itself currently supports one option: `caseSensitive`. By default this is `false` (meaning your searches are case insensitive), but you can set it to `true` to get case-sensitive responses as in the first example above.
 
 This is essentially a lightweight version of hugovk's [gutengrep](https://github.com/hugovk/gutengrep/) -- please check that out if you want a comprehensive implementation that works with the entire Gutenberg corpus (but also requires more setup and is in Python).
 
